@@ -1,15 +1,14 @@
 .colorFavicon {
-    color: tomato;
-
+  color: tomato;
 }
 
 .error {
-    width: 100%;
-    height: 800px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  height: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.message{
-    font-size: 30px;
+.message {
+  font-size: 30px;
 }

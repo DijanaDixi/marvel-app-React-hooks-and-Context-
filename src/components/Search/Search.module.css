@@ -1,19 +1,16 @@
 .nav {
-    /* background-color: rgb(241, 21, 31); */
-    background-color: black;
-    font-size: 25px;
-  
-  }
-  
-  .nav a {
-    font-size: 25px;
-  }
-  
-  .form-inline .form-control {
-    width: 70%;
-  }
-  
-  .marginBlock {
-    margin-block-end: 0;
-  }
-  
+  background-color: black;
+  font-size: 25px;
+}
+
+.nav a {
+  font-size: 25px;
+}
+
+.form-inline .form-control {
+  width: 70%;
+}
+
+.marginBlock {
+  margin-block-end: 0;
+}

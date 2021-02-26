@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 import React, { createContext, useReducer } from "react";
 import { marvelReducer } from "../reducer/marvelReducer";
 
@@ -6,7 +6,7 @@ export const MarvelContext = createContext();
 
 const MarvelContextProvider = (props) => {
   const initState = {
-    loading:false,
+    loading: false,
     characters: [],
     favorite: [],
     view: "card",
@@ -19,10 +19,10 @@ const MarvelContextProvider = (props) => {
     </MarvelContext.Provider>
   );
 };
-MarvelContextProvider.propTypes={
+MarvelContextProvider.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-]).isRequired
+    PropTypes.node,
+  ]).isRequired,
 };
 export default MarvelContextProvider;

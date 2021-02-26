@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import style from "./ListItem.module.css";
 import { MarvelContext } from "../../../contexts/marvelContext";
 
-export default function ListItem({ character,bookmark }) {
+export default function ListItem({ character, bookmark }) {
   const { state } = useContext(MarvelContext);
   const saveId = (val) => {
     bookmark(val);
@@ -21,7 +21,7 @@ export default function ListItem({ character,bookmark }) {
   const getComics = getNestedObject(character, ["comics", "items"]);
   const comics = getComics.slice(0, 3);
   return (
-    <div className={`col-sm-10 offset-1 ${style.bodyCard}`} key={character.id}>
+    <div className={`col-10 offset-1 ${style.bodyCard}`} key={character.id}>
       <div className="row">
         <div className={`col-6 col-lg-4 ${style.imageHolder}`}>
           <img
@@ -37,7 +37,7 @@ export default function ListItem({ character,bookmark }) {
             <div>
               <h5 className={style.overflow}>Comics</h5>
               {comics?.map((c) => {
-                return <p key={c.id}>{c?.name || "- -"}</p>;
+                return <p key={c?.id}>{c?.name || "- -"}</p>;
               })}
             </div>
             <div>

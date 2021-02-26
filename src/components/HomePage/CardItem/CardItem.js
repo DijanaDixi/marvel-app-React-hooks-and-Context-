@@ -58,21 +58,20 @@ export default function CardItem({ character, bookmark }) {
               ) : (
                 <FontAwesomeIcon
                   icon={faBookmark}
-                  // eslint-disable-next-line react/prop-types
                   onClick={(e) => {
                     e.stopPropagation();
                     saveId(character, character.id);
                   }}
                   className={style.bookmark}
                 />
-               )} 
+              )}
             </div>
           </div>
           <div className={style.flipCardBack}>
             <div>
               <p className="text-center text-uppercase font-italic">Comics</p>
               {comics?.map((c) => {
-                return <p key={c.id}>{c.name || "- -"}</p>;
+                return <p key={c?.id}>{c?.name || "- -"}</p>;
               })}
             </div>
           </div>
