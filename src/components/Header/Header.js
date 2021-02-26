@@ -6,7 +6,7 @@ import { MarvelContext } from "../../contexts/marvelContext";
 
 export default function Header() {
   const { state, dispatch } = useContext(MarvelContext);
-  
+
   const changeButtons = () => {
     if (state.view === "card") {
       return (

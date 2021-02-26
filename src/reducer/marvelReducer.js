@@ -1,7 +1,15 @@
 export const marvelReducer = (state, action) => {
   switch (action.type) {
-    case "FETCH_DATA":
-      return { ...state, characters: action.payload };
+    case "FETCH_DATA_REQUEST":
+      return{
+        ...state,
+        loading:true,
+      }
+    case "FETCH_DATA_SUCCESS":
+      return { 
+        ...state, 
+        loading:false,
+        characters: action.payload.data };
     case "CHANGE_VIEW":
       return {
         ...state,

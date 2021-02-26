@@ -21,7 +21,7 @@ export default function ListItem({ character,bookmark }) {
   const getComics = getNestedObject(character, ["comics", "items"]);
   const comics = getComics.slice(0, 3);
   return (
-    <div className={`col-sm-12 ${style.bodyCard}`} key={character.id}>
+    <div className={`col-sm-10 offset-1 ${style.bodyCard}`} key={character.id}>
       <div className="row">
         <div className={`col-6 col-lg-4 ${style.imageHolder}`}>
           <img

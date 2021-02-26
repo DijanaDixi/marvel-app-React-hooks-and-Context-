@@ -3,8 +3,10 @@ import { MarvelContext } from "../../../contexts/marvelContext";
 import Header from "../../Header/Header";
 import CardItem from "../CardItem/CardItem";
 import ListItem from "../ListItem/ListItem";
+import Error from "../Error/Error";
 import Search from "../../Search/Search";
 import style from "./Characters.module.css";
+import Loader from "../Loader/Loader";
 
 export default function Characters() {
   const { state, dispatch } = useContext(MarvelContext);
@@ -14,13 +16,18 @@ export default function Characters() {
   }, []);
 
   const fetchDataAction = async () => {
+    dispatch({
+      type: "FETCH_DATA_REQUEST",
+    });
     const data = await fetch(
       `https://gateway.marvel.com/v1/public/characters?ts=thesoer&apikey=6e5060e01c4b7ee2a016ffcd5079b468&hash=487fdf44d9cc6e059dae4d062cf419e2`
     );
     const dataJson = await data.json();
     return dispatch({
-      type: "FETCH_DATA",
-      payload: dataJson.data.results,
+      type: "FETCH_DATA_SUCCESS",
+      payload: {
+        data: dataJson.data.results,
+      },
     });
   };
 
@@ -36,7 +43,6 @@ export default function Characters() {
         payload: favouritesWithoutCharacter,
       });
     } else {
-      // add character
       dispatch({
         type: "ADD_FAVORITE",
         payload: value,
@@ -68,13 +74,26 @@ export default function Characters() {
       payload: state.favorite,
     });
   };
+
   return (
     <>
-      <Header />
-      <div className={style.comicBGPanel}>
-        <Search showFavorite={showFavorite} fetchDataAction={fetchDataAction} />
-        <div className={`container ${style.charactersBody}`}>
-          <div className="row">{allCharacters}</div>
+      <div className="container">
+        <Header />
+        <div className={style.comicBGPanel}>
+          <Search
+            showFavorite={showFavorite}
+            fetchDataAction={fetchDataAction}
+          />
+
+          <div className={`container ${style.charactersBody}`}>
+            {state.loading ? (
+              <Loader />
+            ) : (
+              <div className="row">
+                {state.characters.length ? allCharacters : <Error />}
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </>

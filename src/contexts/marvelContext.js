@@ -6,6 +6,7 @@ export const MarvelContext = createContext();
 
 const MarvelContextProvider = (props) => {
   const initState = {
+    loading:false,
     characters: [],
     favorite: [],
     view: "card",

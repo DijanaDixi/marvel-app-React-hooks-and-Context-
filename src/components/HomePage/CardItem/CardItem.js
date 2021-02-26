@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import PropTypes from "prop-types";
 import React, { useState, useContext } from "react";
 import { faBookmark } from "@fortawesome/free-solid-svg-icons";
@@ -64,7 +65,7 @@ export default function CardItem({ character, bookmark }) {
                   }}
                   className={style.bookmark}
                 />
-              )}
+               )} 
             </div>
           </div>
           <div className={style.flipCardBack}>
